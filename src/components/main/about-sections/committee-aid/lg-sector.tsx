@@ -18,7 +18,7 @@ const LocalGovernmentSelector: React.FC = () => {
         <Select
           options={lgaOptions}
           value={localGovernment}
-          onChange={setLocalGovernment}
+          onChange={(value) => setLocalGovernment(value as string)}
           className="md:max-w-[391px] w-full !py-2"
         ></Select>
       </div>
