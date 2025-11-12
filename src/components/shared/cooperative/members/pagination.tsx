@@ -35,7 +35,8 @@ export default function TablePagination<TData extends Record<string, any>>({
             options={options}
             className="w-[70px]"
             value={table.getState().pagination.pageSize}
-            onChange={(v: SelectOption) => {
+            onChange={(value: unknown) => {
+              const v = value as SelectOption;
               table.setPageSize(Number(v.value));
             }}
             selectClassName="font-semibold text-sm ring-0 shadow-sm h-9"

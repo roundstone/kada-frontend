@@ -123,7 +123,7 @@ function EditVendorProfile({ close }: EditVendorProfileProps) {
                                 label="Product/Service"
                                 id="lga"
                                 value={value} // Ensure value is a string
-                                onChange={(selected: { value: string }) => onChange(selected?.value)} // Extract the value string
+                                onChange={onChange} // Extract the value string
                                 className={"w-full !rounded-[10px] !h-[40px]"}
                                 options={productServiceCategories}
                                 error={errors.productService?.message || error?.message}

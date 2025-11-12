@@ -30,7 +30,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           ...options.map((option) => ({ label: option, value: option })),
         ]}
         value={selectedOption}
-        onChange={setSelectedOption}
+        onChange={(value) => setSelectedOption(value as string)}
         className="bg-white !border-teal-700 !py-3"
       />
     </div>

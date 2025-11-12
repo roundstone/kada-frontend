@@ -73,7 +73,7 @@ function FarmerVendorsSharedPage() {
             clearable={productService !== null}
             onClear={() => setProductService(null)}
             options={productServiceCategories}
-            onChange={setProductService}
+            onChange={(option: unknown) => setProductService(option as { value: string } | null)}
             value={productService}
             selectClassName="min-w-40"
           />

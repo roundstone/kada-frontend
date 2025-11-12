@@ -72,7 +72,7 @@ function CooperativeVendorsSharedPage() {
             clearable={productService !== null}
             onClear={() => setProductService(null)}
             options={productServiceCategories}
-            onChange={setProductService}
+            onChange={(value) => setProductService(value as { value: string } | null)}
             value={productService}
             selectClassName="min-w-40"
           />

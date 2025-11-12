@@ -126,10 +126,16 @@ function AddCroppping({
                   <Select
                     label="Crop"
                     value={selectedCrop}
-                    onChange={(selected: { value: string; seasons: any }) => {
-                      onChange(selected?.value);
-                      setSelectedCrop(selected);
-                      setSeasons(selected.seasons);
+                    onChange={(selected) => {
+                      if (selected && typeof selected === 'object' && 'value' in selected && 'seasons' in selected) {
+                        onChange(selected.value);
+                        setSelectedCrop(selected);
+                        setSeasons(Array.isArray(selected.seasons) ? selected.seasons : []);
+                      } else {
+                        onChange(undefined);
+                        setSelectedCrop(undefined);
+                        setSeasons([]);
+                      }
                     }}
                     className={"!h-[56px]"}
                     options={cropOptions}
@@ -149,9 +155,14 @@ function AddCroppping({
                   <Select
                     label="Season"
                     value={selectedSeason}
-                    onChange={(selected: { value: string; seasons: any }) => {
-                      onChange(selected?.value);
-                      setSelectedSeason(selected);
+                    onChange={(selected) => {
+                      if (selected && typeof selected === 'object' && 'value' in selected) {
+                        onChange(selected.value);
+                        setSelectedSeason(selected);
+                      } else {
+                        onChange(undefined);
+                        setSelectedSeason(undefined);
+                      }
                     }}
                     className={"!h-[56px]"}
                     options={seasonOptions}

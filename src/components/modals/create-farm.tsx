@@ -286,10 +286,16 @@ function CreateFarmModal({ close, farm }: { close: () => void; farm?: IFarm }) {
                 <Select
                   label="Local Government Area (LGA)"
                   id="lga"
-                  value={value} // Ensure value is a string
-                  onChange={(selected: { value: string }) =>
-                    onChange(selected?.value)
-                  } // Extract the value string
+                  value={value}
+                  onChange={(selected: unknown) =>
+                    onChange(
+                      typeof selected === "object" &&
+                        selected !== null &&
+                        "value" in selected
+                        ? (selected as { value: string }).value
+                        : ""
+                    )
+                  }
                   className={"!h-[56px]"}
                   options={lgaOptions}
                   error={errors.lga?.message || error?.message}
