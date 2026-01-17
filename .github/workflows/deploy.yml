@@ -39,7 +39,7 @@ jobs:
             git pull origin main
 
             echo "Installing dependencies..."
-            npm install --production
+            npm install
 
             echo "Building frontend..."
             npm run build
