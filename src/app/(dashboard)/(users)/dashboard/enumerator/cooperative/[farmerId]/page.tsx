@@ -10,7 +10,13 @@ type Params = {
   farmerId: string;
 };
 
-export default function FarmerCooperativePage({ params }: { params: Params }) {
-  const { farmerId } = params;
+type FarmerCooperativePageProps = {
+  params: Promise<Params>;
+};
+
+export default async function FarmerCooperativePage({
+  params,
+}: FarmerCooperativePageProps) {
+  const { farmerId } = await params;
   return <FarmerCooperativeSharedPage farmerId={farmerId} />;
 }
