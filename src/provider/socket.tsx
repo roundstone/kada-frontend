@@ -60,7 +60,7 @@ export const SocketProvider = ({ children }: React.PropsWithChildren<{}>) => {
   };
 
   useEffect(() => {
-    connect(); // Automatically connect when the component using the context mounts
+    // connect(); // Automatically connect when the component using the context mounts
     return () => {
       // Disconnect when the component unmounts
       disconnect();

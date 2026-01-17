@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 5991",
+    "dev": "next dev --webpack -p 5991",
     "build": "next build",
     "start": "next start -p 5991",
     "lint": "next lint"
@@ -25,7 +25,7 @@
     "jspdf": "^2.5.2",
     "leaflet": "^1.9.4",
     "leaflet-draw": "^1.0.4",
-    "next": "14.2.14",
+    "next": "^16.0.3",
     "nextjs-toploader": "^3.7.15",
     "react": "^18",
     "react-datepicker": "^7.5.0",

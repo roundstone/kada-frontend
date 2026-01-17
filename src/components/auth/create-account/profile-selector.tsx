@@ -93,16 +93,14 @@ const ProfileTypeSelector: React.FC = () => {
                 )}`
               );
             }}
-            className={`flex overflow-hidden flex-col items-start py-4 pr-14 pl-5 mt-6 w-full rounded-lg ${
-              type.type == activeType
+            className={`flex overflow-hidden flex-col items-start py-4 pr-14 pl-5 mt-6 w-full rounded-lg ${type.type == activeType
                 ? "bg-white border border-teal-700 border-solid"
                 : "bg-zinc-50"
-            } max-md:pr-5 transition-all ease-in-out`}
+              } max-md:pr-5 transition-all ease-in-out`}
           >
             <div
-              className={`flex gap-1.5 text-base text-left font-bold leading-tight ${
-                type.type == activeType ? "text-green-800" : "text-neutral-500"
-              }`}
+              className={`flex gap-1.5 text-base text-left font-bold leading-tight ${type.type == activeType ? "text-green-800" : "text-neutral-500"
+                }`}
             >
               {type.icon}
               {/* <img  src={type.icon} alt="" className="object-contain shrink-0 w-6 aspect-square" /> */}
@@ -122,11 +120,12 @@ const ProfileTypeSelector: React.FC = () => {
           onChange={handleSelectChange}
           className="appearance-none w-full px-4 py-4 text-base font-bold leading-tight text-green-800 bg-white border border-teal-700 rounded-lg cursor-pointer focus:outline-none"
         >
+          <option>Select type</option>
           {profileTypes.map((type, index) => (
             <option
-              key={index}
+              key={type.type || index}
               value={type.type}
-              selected={type.type == activeType}
+              // selected={type.type == activeType}
               className="flex items-center gap-1.5 text-base"
             >
               {type.title}
